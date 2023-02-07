@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors')
 const locationsController = require("./src/locations/locations.controller");
 const usersController = require("./src/users/users.controller");
 const mongoose = require("mongoose");
@@ -9,6 +10,7 @@ require("./src/authentication/jwt.strategy");
 const passport = require("passport");
 
 const app = express();
+app.use(cors());
 const port = 3000;
 
 app.use(bodyParser.json());
