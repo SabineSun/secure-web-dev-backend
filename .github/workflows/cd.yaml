@@ -1,7 +1,4 @@
 name: CD
-concurrency:
-  group: production
-  cancel-in-progress: true
 on:
   push:
     branches:
@@ -11,8 +8,6 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    environment:
-      name: production
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
